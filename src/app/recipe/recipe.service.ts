@@ -19,6 +19,12 @@ export class RecipeService {
         new Ingredient('Pizza Dough', 1),
         new Ingredient('Sausage', 5),
         new Ingredient('Mozarella', 3)
+    ]),
+    new Recipe('Potato Nuggets', 'Nuggets For You Inner Potato', 'http://recipechart.com/wp-content/uploads/2013/02/Potato_Nuggets.jpg',
+      [
+      new Ingredient('Oil', 1),
+      new Ingredient('Potato', 5),
+      new Ingredient('Pure Hatred', 3)
     ])
   ];
 
@@ -27,8 +33,7 @@ export class RecipeService {
   getRecipes() {
     return this.recipes.slice();
   }
-
-  getRecipe(rcpId : number){
+  getRecipe( rcpId: number) {
     return this.recipes[rcpId];
   }
 
