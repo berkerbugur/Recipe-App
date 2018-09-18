@@ -13,8 +13,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(sectionName: string){
-    this.featureSelect.emit(sectionName);
-  }
-
 }

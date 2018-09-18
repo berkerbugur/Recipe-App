@@ -1,8 +1,8 @@
 <a
-  href="#"
   class="list-group-item clearfix"
-  (click)="onSelected()"
-  style="margin: 2px;">
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  style="margin: 2px; cursor: pointer;">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ rcp.name }}</h4>
     <p class="list-group-item-text">{{ rcp.description }}</p>

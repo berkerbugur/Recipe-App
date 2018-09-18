@@ -1,13 +1,14 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success">Add Recipe</button>
+    <button class="btn btn-success" routerLink="newRcp">Add Recipe</button>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <app-recipe-item   *ngFor="let rcpEl of recipes"
-                       [rcp]="rcpEl"></app-recipe-item>
+    <app-recipe-item   *ngFor="let rcpEl of recipes, let i = index"
+                       [rcp]="rcpEl"
+                       [index]="i"></app-recipe-item>
   </div>
 </div>
 
