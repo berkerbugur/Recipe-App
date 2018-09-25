@@ -5,7 +5,8 @@
     <ul class="list-group">
       <a id="shop-items" class="list-group-item"
          style="cursor: pointer; margin: 5px;"
-         *ngFor="let ingr of ingredients">
+         *ngFor="let ingr of ingredients; let i = index"
+         (click)="onEdit(i)">
         {{ingr.name}} ({{ingr.amount}})
       </a>
     </ul>

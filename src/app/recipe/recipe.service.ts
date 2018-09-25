@@ -20,7 +20,7 @@ export class RecipeService {
         new Ingredient('Sausage', 5),
         new Ingredient('Mozarella', 3)
     ]),
-    new Recipe('Potato Nuggets', 'Nuggets For You Inner Potato', 'http://recipechart.com/wp-content/uploads/2013/02/Potato_Nuggets.jpg',
+    new Recipe('Potato Nuggets', 'Nuggets For Your Inner Potato', 'http://recipechart.com/wp-content/uploads/2013/02/Potato_Nuggets.jpg',
       [
       new Ingredient('Oil', 1),
       new Ingredient('Potato', 5),
