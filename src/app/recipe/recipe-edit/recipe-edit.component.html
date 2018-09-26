@@ -4,8 +4,11 @@
           (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success button-overall-margin"> Save </button>
-          <button type="button" class="btn btn-danger button-overall-margin"> Cancel </button>
+          <button type="submit"
+                  class="btn btn-success button-overall-margin"
+                  [disabled]="!recipesF.valid"> Save </button>
+          <button type="button"
+                  class="btn btn-danger button-overall-margin" (click)="onCancel()"> Cancel </button>
         </div>
       </div>
       <div class="row">
@@ -26,14 +29,14 @@
             <input type="text"
                    id="imgPath"
                    [formControlName]="'imgPath'"
-                   class="form-control">
+                   class="form-control" #imgPreview>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <img src="" class="img-responsive">
+            <img [src]="imgPreview.value" class="img-responsive" style="max-width: 400px">
           </div>
         </div>
       </div>
@@ -66,7 +69,13 @@
                      formControlName="amount">
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger button-overall-margin"> X </button>
+              <button class="btn btn-danger button-overall-margin" (click)="onDeleteIngr(i)"> X </button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-success" (click)="onAddIngr()"> Add Ingredient </button>
             </div>
           </div>
         </div>
