@@ -62,4 +62,9 @@ export class RecipeService {
     this.recipes.splice(index, 1);
     this.rcpChange.next(this.recipes.slice());
   }
+
+  setRcp(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.rcpChange.next(this.recipes.slice());
+  }
 }

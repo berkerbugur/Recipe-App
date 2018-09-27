@@ -1,4 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {DbStoreService} from '../shared/db-store.service';
+import {Response} from '@angular/http';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,20 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() featureSelect = new EventEmitter<String>();
 
-  constructor() { }
+  constructor(private db: DbStoreService) {}
 
   ngOnInit() {
+  }
+
+  onSave() {
+    this.db.storeRcp()
+      .subscribe((response: Response) => {
+        console.log(response);
+      });
+  }
+
+  onFetch() {
+    this.db.fetchRcp();
   }
 
 }
