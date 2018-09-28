@@ -11,7 +11,7 @@ import {AuthService} from '../auth/auth.service';
 export class HeaderComponent implements OnInit {
   @Output() featureSelect = new EventEmitter<String>();
 
-  constructor(private db: DbStoreService, private auth: AuthService) {}
+  constructor(private db: DbStoreService, public auth: AuthService) {}
 
   ngOnInit() {
   }

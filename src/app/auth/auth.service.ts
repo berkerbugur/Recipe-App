@@ -42,7 +42,7 @@ export class AuthService {
   }
 
   isAuth() {
-    return this.token!= null;
+    return this.token != null;
   }
 
   onLogOut() {
