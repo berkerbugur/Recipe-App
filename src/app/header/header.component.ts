@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DbStoreService} from '../shared/db-store.service';
 import {Response} from '@angular/http';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import {Response} from '@angular/http';
 export class HeaderComponent implements OnInit {
   @Output() featureSelect = new EventEmitter<String>();
 
-  constructor(private db: DbStoreService) {}
+  constructor(private db: DbStoreService, private auth: AuthService) {}
 
   ngOnInit() {
   }
@@ -25,5 +26,6 @@ export class HeaderComponent implements OnInit {
   onFetch() {
     this.db.fetchRcp();
   }
+
 
 }

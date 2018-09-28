@@ -4,21 +4,25 @@ import {RecipeService} from '../recipe/recipe.service';
 import {ShoppingService} from '../shopping/shopping.service';
 import {Recipe} from '../recipe/recipe.model';
 import {map} from 'rxjs/operators';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable()
 export class DbStoreService {
-  constructor(private httpReq: Http, private recipes: RecipeService, private shopping: ShoppingService) {}
+  constructor(private httpReq: Http, private recipes: RecipeService, private shopping: ShoppingService, private auth: AuthService) {}
 
   storeRcp() {
-    return this.httpReq.put('https://rcpbook-be9bb.firebaseio.com/recipes.json', this.recipes.getRecipes());
+    const token = this.auth.getToken();
+    return this.httpReq.put('https://rcpbook-be9bb.firebaseio.com/recipes.json?auth=' + token, this.recipes.getRecipes());
   }
 
   fetchRcp() {
-    return this.httpReq.get('https://rcpbook-be9bb.firebaseio.com/recipes.json')
+    const token = this.auth.getToken();
+
+    return this.httpReq.get('https://rcpbook-be9bb.firebaseio.com/recipes.json?auth=' + token)
       .pipe(map((response: Response) => {
         const recipes: Recipe[] = response.json();
         for (let rcp of recipes){
-          if (!rcp['ingredients']){
+          if (!rcp['ingredients']) {
             console.log(rcp);
             rcp['ingredients'] = [];
           }

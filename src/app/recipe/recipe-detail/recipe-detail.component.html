@@ -19,8 +19,8 @@
       </button>
       <ul class="dropdown-menu">
         <li><a (click)="toAddShopping()" style="cursor: pointer">Add To Shopping List</a></li>
-        <li><a style="cursor: pointer" routerLink="edit">Edit Recipe</a></li>
-        <li><a style="cursor: pointer" (click)="onDelete()">Delete Recipe</a></li>
+        <li><a style="cursor: pointer" routerLink="edit" *ngIf="auth.isAuth()">Edit Recipe</a></li>
+        <li><a style="cursor: pointer" (click)="onDelete()" *ngIf="auth.isAuth()">Delete Recipe</a></li>
       </ul>
     </div>
   </div>
