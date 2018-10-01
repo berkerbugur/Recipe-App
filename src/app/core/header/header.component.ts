@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {DbStoreService} from '../shared/db-store.service';
 import {Response} from '@angular/http';
-import {AuthService} from '../auth/auth.service';
+import {DbStoreService} from '../../shared/db-store.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
