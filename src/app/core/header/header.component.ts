@@ -1,5 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Response} from '@angular/http';
 import {DbStoreService} from '../../shared/db-store.service';
 import {AuthService} from '../../auth/auth.service';
 
@@ -9,6 +8,7 @@ import {AuthService} from '../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   @Output() featureSelect = new EventEmitter<String>();
 
   constructor(private db: DbStoreService, public auth: AuthService) {}
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   onSave() {
     this.db.storeRcp()
-      .subscribe((response: Response) => {
+      .subscribe((response) => {
         console.log(response);
       });
   }
@@ -26,6 +26,10 @@ export class HeaderComponent implements OnInit {
   onFetch() {
     this.db.fetchRcp();
   }
+
+  // loadRecipes() {
+  //   this.db.fetchRcp();
+  // }
 
 
 }

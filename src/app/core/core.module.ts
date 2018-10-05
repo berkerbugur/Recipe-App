@@ -8,6 +8,9 @@ import {ShoppingService} from '../shopping/shopping.service';
 import {RecipeService} from '../recipe/recipe.service';
 import {DbStoreService} from '../shared/db-store.service';
 import {AuthService} from '../auth/auth.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../shared/auth.interceptor';
+import {LoginInterceptor} from '../shared/login.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,13 @@ import {AuthService} from '../auth/auth.service';
     AppRoutingModule,
     HeaderComponent
   ],
-  providers: [ShoppingService, RecipeService, DbStoreService, AuthService]
+  providers: [
+    ShoppingService,
+    RecipeService,
+    DbStoreService,
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true}
+    ]
 })
 export class CoreModule {}

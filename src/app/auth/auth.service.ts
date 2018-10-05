@@ -2,6 +2,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import {Router} from '@angular/router';
 import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class AuthService {
@@ -22,7 +23,8 @@ export class AuthService {
   signInUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(
       response => {
-        this.route.navigate(['/']);
+        console.log(response);
+        this.route.navigate(['/recipes']);
         firebase.auth().currentUser.getIdToken()
           .then(
             (token: string) => this.token = token

@@ -6,7 +6,7 @@ import {HomeComponent} from './core/home/home.component';
 
 
 const appRoutes: Routes = [
-   //{ path: '', redirectTo: '/recipes', pathMatch: 'full'},
+  /*{ path: '', redirectTo: '/recipes', pathMatch: 'full'},*/
   { path: '', component: HomeComponent},
   { path: 'recipes', loadChildren: './recipe/recipe.module#RecipeModule'},
   { path: 'shopping-list', component: ShoppingComponent}
@@ -20,3 +20,4 @@ const appRoutes: Routes = [
 export class AppRoutingModule {
 
 }
+
